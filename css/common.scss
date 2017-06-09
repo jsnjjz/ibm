@@ -1,0 +1,877 @@
+html, 
+body {
+	height: 100%;
+	width: 100%;
+}
+
+//.fadeIn{
+//	opacity: 1;
+//	// height: 52px;
+//	transition: 300ms;
+//}
+//
+//.fadeUp{
+//	opacity: 0;
+//	// height: 0;
+//	transition: 300ms;
+//}
+
+.clearfix{
+	*zoom: 1;
+	&::before,&::after{
+		content: '';
+		display: table;
+	}
+	&::after{
+		clear: both;
+	}
+}
+.fl {
+	float: left!important;
+}
+.fr {
+	float: right!important;
+}
+/*          reset css   end      */
+
+/*      definition sass      */
+$b:#000;
+$w:#fff;
+
+@mixin whb($width,$height,$bg){
+	width: $width;
+	height: $height;
+	background: $bg;
+}
+@mixin mg($top,$right,$bottom,$left){
+	margin-top: $top;
+	margin-right: $right;
+	margin-bottom: $bottom;
+	margin-left: $left;
+}
+
+/*          header start            */
+
+.header {
+//	background: green;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	line-height: 50px;
+	border-bottom: 2px solid #e5e5e5;
+	background: #fff;
+	#logo {
+		@include mg(0,20px,0,20px);
+	}
+	#logo a {
+		position: relative;
+		font-size: 26px;
+		line-height: 50px;
+		color: $b;
+		padding-bottom: 12px;
+	}
+	.nav {
+			a {
+			font-size: 14px;
+			color: #363636;
+			.iconfont {
+				@include mg(0,0,0,8px);
+			}
+		}
+		 li {
+		position: relative;
+		@include mg(0,18px,0,0);
+		.iconfont {
+//			margin-left: -14px;     3px的间隙无法去除   fontsize:0 也不行？？？
+			line-height: 0px;
+			font-size: 24px;
+			}
+		}
+	} 
+	
+	.marketplace {
+		@include mg(8px,20px,auto,auto);
+		width: 104px;
+		height: 32px;
+		border: 1px solid #4178be;
+		line-height: 32px;
+		text-align: center;
+		color: #4178be;
+			&:hover {
+			background: #4178be;
+			color: #fff;
+			}
+	}
+	.nav-search {
+//		position: relative;
+		&:hover {
+//			color: #4178be;
+//			box-shadow: 0 0 5px #4178be;
+		}
+		width: 208px;
+		border-left: 1px solid #e0e0e0;
+		border-right: 1px solid #e0e0e0;
+		padding-left: 10px;
+		.search-txt {
+			line-height: 50px;
+			width: 168px;
+		}
+		.search-icon {
+//			position: absolute;
+//			z-index: 1;
+			height: 50px;
+			width: 40px;
+			text-align: center;
+			font-size: 21px;
+			color: #323232;
+			background: none;
+			border: none;
+		}
+	}
+	.login {
+		position: relative;
+		@include mg(0,26px,0,26px);
+		font-size: 22px;
+		color: #363636;
+	}
+	.menu {
+		position: relative;
+		@include mg(0,16px,0,0);
+		font-size: 22px;
+		color: #363636;
+		cursor: pointer;
+	}
+}
+//.header .search-icon:hover {
+//		color: #4178be;
+//		box-shadow: 0 0 5px #4178be;     ??点击搜索图标  整个搜索框 都会外发光
+//	}
+
+/*---------nav下划线正常添加------------*/
+
+.strip, 
+.strip-h,
+.strip-m,
+.strip-l{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 4px;
+	width: 100%;
+	background: #4178be;
+}
+
+
+/*---------通过伪元素添加------------*/
+//.header li::after {
+//	position: absolute;
+//	left: 0;
+//	bottom: 0;
+//	height: 4px;
+//	width: 100%;
+//	content: "";
+//	background: #4178be;
+//}
+
+
+/*             二级菜单样式            */
+.login-sub {
+	position: absolute;
+	z-index: 1000;
+	right: 65px;
+	top: 50px;
+	display: none;
+	background: #fff;
+	a {
+		display: block;
+		width: 150px;
+		height: 39px;
+		border: 1px solid #e0e0e0;
+		text-align: center;
+		line-height: 39px;
+		font-size: 14px;
+		color: #323232;
+	}
+}
+.login-sub a:hover {
+	background: #4178be;
+	color: #fff;
+}
+
+/*          products-sub    start      */
+.products-sub {
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	top: 52px;
+	width: 100%;
+	border-bottom: 1px solid #e0e0e0;
+	background: #fff;
+	.products-sub-list {
+		padding-left: 130px;
+		width: calc(36.11111111% - 130px);
+		background: #f4f4f4;
+//		color: #323232;
+		a {
+			font-size: 12px;
+			color: #323232;
+		}
+		.products-sub-list-topBox {
+			overflow: hidden;
+			height: 99px;
+			width: 370px;
+			border-bottom: 2px solid #c7c7c7;
+			margin-bottom: 18px;
+			.fir-h6 {
+				@include mg(27px,0,10px,20px);
+				font-size: 18px;
+				line-height: 18px;
+			}
+			.all-products {
+				display: block;
+//				height: 40px;
+				line-height: 40px;
+				width: 370px;
+				@include mg(0,0,0,40px);
+			}
+			.all-products:hover {
+				background: #4178be;
+				color: #fff;
+			}
+		}
+		.sec-h6 {
+			@include mg(0,0,0,20px);
+		}
+		.explore-sub {
+			width: 370px;
+			li {
+				@include mg(0,0,0,40px);
+				line-height: 40px;
+				.dextro {
+					float: right;
+					margin-right: 11px;
+				}
+			}
+			.iconfont {
+				display: none;
+			}
+		}
+	}
+.explore-sub li:hover {
+	background: #3b6caa;
+	.iconfont {
+				display: block;
+	}
+}
+.explore-sub li:hover a{
+	color: #fff;
+}
+  /*    analytics-sub and public-css start*/
+	.analytics-sub {
+		display: none;
+		width: 63.88888889%;
+		.analytics-sub-left {
+			@include mg(30px,0,0,20px);
+			line-height: 40px;
+			width: calc(45.65217391% - 20px);
+			a {
+				color: #4178be;
+			}
+			.analytics-sub-tit a {
+				font-size: 50px;
+			}
+		} 
+		.analytics-sub-right {
+			@include mg(105px,0,0,0);
+			width: 54.34782609%;
+			font-size: 12px;
+			line-height: 30px;
+			.pic {
+				@include mg (12px,0,21px,0);
+				display: block;
+				width: 380px;
+				height: 160px;
+				background: url(../img/analytics_feature_panel.jpg);
+			}
+			a {
+				font-size: 12px;
+				color: #3b6caa;
+			}
+		}
+	}
+	.pull-up {
+		position: absolute;
+		font-size: 24px;
+		color: #959595;
+		bottom: 24px;
+		left: 50%;
+		margin-left: -12px;
+	}
+}
+
+/*   更换背景图片    */
+.products-sub {
+		.cloud-sub {
+			.analytics-sub-right .pic {
+			@include whb(398px,198px,url(../img/clude.jpg));
+		}
+	};
+	.watson-sub {
+		.analytics-sub-right .pic {
+		@include whb(398px,198px,url(../img/clude.jpg));
+		}
+	};
+	.internet-sub {
+		.analytics-sub-right .pic {
+		@include whb(380px,160px,url(../img/Internet.jpg));
+		}
+	};
+	.industry-sub {
+		.analytics-sub-right .pic {
+		@include whb(380px,214px,url(../img/Industry.jpg));	
+		}
+	};
+	.it-sub {
+		.analytics-sub-right .pic {
+		@include whb(380px,160px,url(../img/it-infrastructure.jpg));
+		}
+	};	
+	.mobile-sub {
+		.analytics-sub-right .pic {
+		@include whb(380px,160px,url(../img/Mobile.jpg));
+		}
+	};
+	.security-sub {
+		.analytics-sub-right .pic {
+		@include whb(380px,160px,url(../img/Security.jpg));
+		}
+	};
+	.social-sub {
+		.analytics-sub-right .pic {
+		@include whb(380px,160px,url(../img/Social.jpg));
+		}
+	};
+	.watson1-sub {
+		.analytics-sub-right .pic {
+		@include whb(380px,160px,url(../img/Watson.jpg));
+		}
+	};
+	.watson-health-sub {
+		.analytics-sub-right .pic {
+		@include whb(380px,160px,url(../img/Watson-health.jpg));
+	};
+ }
+}
+
+.change {
+	display: block;
+}
+
+/*       nav menu     */
+.nav-menu {
+	display: none;
+	background: #fff;
+	position: absolute;
+	z-index: 1000;
+	right: -380px;
+	top: 0;
+	overflow: scroll;
+	width: 380px;
+//	min-height: 100%;
+	height: 100%;
+	.close {
+		width: 380px;
+		height: 50px;
+		border-bottom: 4px solid #5a5a5a;
+		line-height: 50px;
+		cursor: pointer;
+		span {
+			margin-right: 24px;
+			color: #323232;
+		}
+	}
+	dt {
+		position: relative;
+		margin-left: 21px;
+		margin-bottom: 6px;
+		line-height: 42px;
+		font-weight: bold;
+		cursor: pointer;
+		.iconfont {
+			position: absolute;
+			right: 24px;
+		}
+		.unfold {
+		display: none;
+		}
+	}
+	dt:hover {
+		background: #3b6caa;
+		color: #fff;
+	}
+	dd {
+		margin-left: 39px;
+		line-height: 40px;
+		a {
+			color: #323232;
+		}
+	}
+	dd:hover a{
+		border-bottom: 4px solid #323232;
+	}
+	
+}
+/*      遮罩 shade      */
+.shade {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  background: rgba(0,0,0,.3);
+}
+
+/*    banner  start    */
+.banner {
+	position: relative;
+	top: 52px;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	min-height: 384px;
+	overflow: hidden;
+	border-bottom: 1px solid #fff;
+	background: url(../img/banner.jpg);
+	background-size: cover;
+	color: #fff;
+	font-size: 14px;
+	
+	
+	.banner-link {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		height: 54px;
+		padding-left: 15px;
+		line-height: 54px;
+		background: rgba(0,0,0,.4);
+		span,a {
+			margin-right: 19px;
+			color: #fff;
+		}
+		a:hover {
+			color: #c7c7c7;
+		}
+	}
+}
+.show-hide {
+	display: none;
+}
+
+.banner-txt {
+		width: 40%;
+		height: auto;
+		margin-left: 20px;
+		margin-top: 50px;
+		a {
+			display: block;
+			color: #fff;
+			&:hover .span-txt{
+			text-decoration: underline;
+			}
+		}
+		h4 {margin-bottom: 8px;
+		font-weight: normal;
+		line-height: 44px;
+		font-size: 36px;
+	}
+	.div1 {
+		margin-top: 10px;
+	}
+	.iconfont {
+		margin-right: 10px;
+		font-size: 24px;
+		}
+}
+.at-ibm1 {
+	margin-top: 52px;
+}
+
+/*    this week at IBM    */
+.at-ibm {
+	width: 100%;
+	.cen {
+		width: 25%;
+//		height: 419px;
+		color: #323232;
+		.img-box {
+			width: 100%;
+			height: 42.05378%;
+			img {
+				width: 100%;
+			}
+		}
+		.txt-box {
+//			background: yellowgreen;
+//			width: 100%;
+			padding: 19px;
+			padding-bottom: 30px;
+			.txt-box-in {
+				margin-top: 10px;
+//				background: hotpink;
+			}
+			.tit {
+				font-size: 12px;
+				margin-top: 12px;
+				line-height: 20px;
+			}
+			.tit-sec {
+				color: #3b6caa;
+				width: 100%;
+				i {
+					width: 28px;
+					height: 100%;
+					font-size: 16px;
+				}
+				span {
+					line-height: 13px;
+					font-size: 12px;					
+				}
+				
+			}
+		}
+		h3 {
+//			@include mg(26px,none,21px,none);
+			font-size: 18px;
+			font-weight: bold;
+			line-height: 22px;
+		}
+	}
+	>div {
+		line-height: 78px;
+		h4 {
+			margin-left: 20px;
+			font-weight: normal;
+			font-size: 24px;
+		}
+	}
+	.change-bg {
+		background: #ecf2f2;
+	}
+}
+
+/*    Inside IBM    */
+.inside-ibm {
+	background: #264a60;
+	a{
+		color: #fff!important;;
+	}
+	span {
+		color: #fff!important;
+	}
+	h4 {
+		color: #fff;
+	}
+	.see-more {
+		display: inline-block;
+		margin-left: 20px;
+		padding-left: 18px;
+		padding-right: 18px;
+		height: 42px;
+		border: 2px solid #fff;
+		background: #264a60;
+		line-height: 42px;
+		text-align: center;
+		&:hover {
+			background: #fff;
+			color: #000 !important;
+		}
+	}
+	.change-bg {
+		background: #1d3649;
+	}
+}
+
+/*       explore-ibm   start   */
+.explore-ibm {
+	.cen {
+//		height: 480px;
+		.img-box {
+			width: 100%;
+			height: 50%;
+			img {
+				margin-top: 24px;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+	>div {
+		line-height: 35px;
+		h4 {
+			@include mg(42px,none,32px,20px);
+			font-weight: normal;
+			font-size: 24px;
+			color: #008571;
+		}
+	}
+	.see-more,.shop {
+		display: inline-block;
+		@include mg(none,none,16px,20px);
+		padding-left: 18px;
+		padding-right: 18px;
+		height: 42px;
+		border: 2px solid #008571;
+		line-height: 42px;
+		text-align: center;
+		color: #008571;
+		&:hover {
+			background: #008571;
+			color: #fff !important;
+		}
+	}
+}
+
+/*        business       */
+.business {
+	width: 100%;
+	height: auto;
+	padding-top: 28px;
+	background: #4178be;
+	color: #fff;
+	.tit {
+		width: 25%;
+		h3 {
+			@include mg(50px,none,none,20px);
+			line-height: 30px;
+			font-size: 24px;
+		}
+	}
+	.pub-css {
+		width: 25%;
+		.box {
+			margin-left: 10px;
+		}
+		a {
+			display: block;
+			width: 100%;
+			color: #fff;
+			.iconfont {
+				font-size: 44px;
+				line-height: 50px;
+			}
+			div {
+				@include mg(12px,none,9px,none);
+			}
+			h6 {
+				position: relative;
+				float: left;
+				line-height: 14px;
+				font-size: 14px;
+				font-weight: normal;
+				span {
+					margin-top: 3px;
+					position: absolute;
+					width: 100%;
+					height: 1px;
+					background: #fff;
+					display: none;
+				}
+			}
+			p {
+				font-size: 12px;
+				margin-bottom: 16px;
+			}
+		}
+	}
+}
+
+/*      Client story of the week start    */
+.client {
+	width: 100%;
+	min-height: 370px;
+	background: url(../img/client.jpg);
+	background-size: cover;
+	overflow: hidden;
+	color: #fff;
+	.txt-box {
+		width: 36%;
+		margin-top: 80px;
+		@include mg(80px,none,none,20px);
+		p {
+			font-size: 12px;
+			
+		}
+		h3 {
+			@include mg(8px,0,8px,0);
+			line-height: 30px;
+			font-size: 20px;
+		}
+		a {
+			margin-top: 22px;
+			display: inline-block;
+			padding: 12px 20px;
+			background: #323232;
+			font-size: 16px;
+			color: #fff;
+			&:hover {
+				background: #000;
+			}
+		}	
+	}
+}
+/*        help start      */
+.help {
+	height: 348px;
+	height: auto;
+	background: #777677;
+	.box {
+		a:first-child {
+			margin-top: 20px;
+		}
+		a:last-child  {
+			margin-top: 40px;
+		}
+	}
+}
+/*     link   start   */
+.link {
+	width: 100%;
+//	background: yellowgreen;
+	>div {
+		width: 25%;
+		h5{
+			margin-top: 30px;
+			margin-left: 20px;
+			line-height: 46px;
+			font-size: 16px;
+			font-weight: bold;
+			color: #464646;
+		}
+		ul {
+			margin-left: 20px;
+		}
+		a {
+			line-height: 33px;
+			color: #5a5a5a;
+			&:hover {
+				text-decoration: underline;
+				color: #4178be;
+			}
+		}
+	}
+}
+/*      select     */
+//.select {
+//	width: 100%;
+//	height: 124px;
+//	.sel-box {
+//		margin-right: 38px;
+//		margin-top: 24px;
+//	}
+//}
+
+.select {
+		width: 100%;
+	.sel-box {
+		margin-right: 40px;
+		margin-bottom: 30px;
+		width: 370px;
+		h3 {
+			font-size: 14px;
+			font-weight: normal;
+		}
+	}
+	.seach-menu {
+		display: none;
+		width: 368px;
+		height: 38px;
+	}
+	.input-seach {
+		padding-left: 10px;
+		width: 358px;
+		height: 38px;
+		border: 1px solid #959f9f;
+		background: yellowgreen;
+		.iconfont {
+			float: right;
+		}
+	}
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*     footer     */
+.footer {
+	width: 100%;
+	a {
+		color: #000;
+		font-size: 16px;
+	}
+	.foot-box {
+		width: 96%;
+		height: 60px;
+		margin: 0 auto;
+		line-height: 60px;
+		border-top: 1px solid #aeaeae;
+	}
+	.info {
+		li {
+			float: left;
+			margin-left: 20px;
+			a {
+				&:hover {
+				text-decoration: underline;
+				color: #4178be;
+			}
+			}
+		}
+	}
+	.firend-link {
+		li {
+			float: left;
+			margin-left: 12px;
+			a {
+				font-size: 20px;
+			}
+			.active {
+				line-height: 50px;
+			}
+		}
+	}
+}
+/*         back-to-top    start   */
+.backToTop {
+	position: fixed;
+	bottom: 20px;
+	right: 40px;
+	display: none;
+	width: 80px;
+	height: 40px;
+	border-radius: 10px;
+	font-size: 18px;
+	text-align: center;
+	line-height: 40px;
+	background: yellowgreen;
+	color: #fff;
+	cursor: pointer;
+}

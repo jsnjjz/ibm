@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		html,body {
+			height: 100%;
+		}
+		a {
+			color: #000;
+			text-decoration: none;
+		}
+		.box {
+			margin:0 400px;
+		}
+		.input-select {
+			width: 170px;
+			height: 38px;
+			padding-left: 8px;
+			padding-right: 22px;
+			background: yellowgreen;
+			border: none;
+		}
+		.search-box {
+			position: relative;
+		}
+		ul {
+			width: 200px;
+			height: 300px;
+			background: hotpink;
+			overflow: scroll;
+		}
+		li {
+			text-align: center;
+			border-bottom: 1px solid grey;
+			line-height: 40px;
+			background: yellow;
+		}
+		.input-select-in {
+			position: absolute;
+			z-index: 100;
+			top: 0;
+			left: 0;
+			height: 50px;
+			background: green;
+			border: none;
+		}
+		
+	</style>
+	<script src="js/jquery.min.js"></script>
+	<script></script>
+</head>
+<body>
+	<div class="box">
+		<form action="">
+			<div class="search-box">
+				<ul> 
+					<li><a href="#" rel="2">北京</a></li> 
+					<li><a href="#" rel="3">上海</a></li> 
+					<li><a href="#" rel="4">武汉</a></li> 
+					<li><a href="#" rel="5">广州</a></li> 
+					<li><a href="#" rel="5">广州</a></li> 
+					<li><a href="#" rel="5">广州</a></li> 
+					<li><a href="#" rel="5">广州</a></li> 
+					<li><a href="#" rel="5">广州</a></li> 
+					<li><a href="#" rel="5">广州</a></li> 
+					<li><a href="#" rel="5">广州</a></li> 
+					<li><a href="#" rel="5">广州</a></li> 
+				</ul> 
+				<input class="input-select-in" type="text">
+			</div>
+			<input class="input-select" type="text" value="请选择城市"/> 
+		</form>
+	</div>
+</body>
+</html>

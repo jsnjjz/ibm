@@ -1,0 +1,67 @@
+@mixin mg($top,$right,$bottom,$left){
+	margin-top: $top;
+	margin-right: $right;
+	margin-bottom: $bottom;
+	margin-left: $left;
+}
+.banner {
+	.banner-txt {
+				display: none;
+	}
+	.banner-link{
+		display: none;
+	}
+}
+.show-hide {
+	display: block;
+	width: 100%;
+	min-height: 350px;
+	background: #000;
+	width: 100%;
+	margin-left: 0px;
+	.show-hide-box {
+		margin-top: 40px;
+		margin-left: 20px;
+	}
+	h4 {
+		color: #fff;
+	}
+}
+
+.at-ibm {
+	.cen {
+		width: 100%;
+	}
+}
+
+.business {
+	.pub-css,.tit {
+		width: 100%;
+	}
+	.tit {
+	h3 {
+		@include mg(10px,none,20px,20px);
+		line-height: 24px;
+		font-size: 24px;
+		}
+	}
+}
+.link {
+	>div {
+		width: 100%;
+	}
+}
+.footer {
+	width: 100%;
+	.foot-box {
+		line-height: 50px;
+	}
+	.info {
+		>li {
+			width: 100%;
+		}
+	}
+	.firend-link {
+		float: left!important;
+	}
+}

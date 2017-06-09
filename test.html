@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<title>jquery模拟SELECT框</title> 
+<meta charset="utf-8"> 
+<style> 
+body{padding:0;margin:0;font-size:12px;} 
+ul,li{list-style:none;padding:0;margin:0;} 
+#dropdown {
+	width:186px; 
+	margin:100px auto; 
+	position:relative;
+/*	background: yellowgreen;*/
+} 
+.input_select {
+	width:150px; 
+	height:24px; 
+	line-height:24px; 
+	padding-left:4px; 
+	padding-right:30px; 
+	border:1px solid #a9c9e2; 
+	background:#e8f5fe url(arrow.gif) no-repeat rightright 4px; 
+	color:#807a62; 
+	} 
+#dropdown ul {
+	
+	width:184px; 
+	
+	background:#e8f5fe; 
+	
+	margin-top:2px; 
+	
+	border:1px solid #a9c9e2; 
+	
+	position:absolute; 
+	
+	display:none
+	} 
+#dropdown ul li {
+	height:24px; 
+	line-height:24px; 
+	text-indent:10px
+	} 
+#dropdown ul li a 
+	{
+	display:block; 
+	height:24px; 
+	color:#807a62; 
+	text-decoration:none
+	} 
+#dropdown ul li a:hover{
+	background:#c6dbfc; 
+	color:#369
+	} 
+#result{
+	margin-top:10px;
+	text-align:center
+	} 
+</style> 
+<script type="text/javascript" src="http://jt.875.cn/js/jquery.js"></script> 
+<script type="text/javascript"> 
+$(function(){ 
+	$(".input_select").click(function(){ 
+	var ul = $("#dropdown ul"); 
+	if(ul.css("display")=="none"){ 
+		ul.slideDown("fast"); 
+		}else{ 
+		ul.slideUp("fast"); 
+		} 
+	}); 
+	$("#dropdown ul li a").click(function(){ 
+		var txt = $(this).text(); 
+		$(".input_select").val(txt); 
+		var value = $(this).attr("rel"); 
+		$("#dropdown ul").hide(); 
+		$("#result").html("您选择了"+txt+"，值为："+value); 
+	}); 
+}); 
+</script> 
+</head> 
+<body> 
+<div id="dropdown"> 
+	<input class="input_select" type="text" value="请选择城市"/> 
+	<ul> 
+		<li><a href="#" rel="2">北京</a></li> 
+		<li><a href="#" rel="3">上海</a></li> 
+		<li><a href="#" rel="4">武汉</a></li> 
+		<li><a href="#" rel="5">广州</a></li> 
+	</ul> 
+</div> 
+<div id="result"></div> 
+</body> 
+</html> 
